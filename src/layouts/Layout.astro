@@ -1,4 +1,6 @@
 ---
+import BaseHead from "@/components/BaseHead.astro";
+import Navbar from "@/components/Navbar";
 import "@/styles/global.css";
 
 interface Props {
@@ -6,42 +8,18 @@ interface Props {
   description?: string;
   image?: string;
 }
-
-const {
-  title = "TrustLink Solutions",
-  description = "Gateway to quality leads",
-  image = "/logo.png",
-} = Astro.props;
-
-const site = Astro.url.toString();
-console.log(site)
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href={image} />
-    <meta name="generator" content={Astro.generator} />
-
-    <!-- FaceBook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:url" content={site} />
-    <meta property="og:image" content={image} />
-    <meta property="og:description" content={description} />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={image} />
-    <meta name="twitter:image:alt" content={title} />
-    <title>{title}</title>
+    <BaseHead {...Astro.props} />
   </head>
   <body>
-    <slot />
+    <Navbar client:load />
+    <main class="p-3">
+      <slot />
+    </main>
+    <footer></footer>
   </body>
 </html>
