@@ -2,9 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Register">
-  <h1>Register</h1>
-  <p>Already have an account? <a href="/signin">Sign in</a></p>
+<Layout title="Signup">
+  <h1>Signup</h1>
+  <p>Already have an account? <a href="/login">Login</a></p>
   <form action="/api/auth/register" method="post">
     <label for="email">Email</label>
     <input type="email" name="email" id="email" />
