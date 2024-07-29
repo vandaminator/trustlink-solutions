@@ -16,7 +16,7 @@ interface Props {
     <BaseHead {...Astro.props} />
   </head>
   <body>
-    <Navbar client:load />
+    <Navbar client:load transition:persist />
     <main transition:animate="fade">
       <slot />
     </main>
