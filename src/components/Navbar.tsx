@@ -54,7 +54,7 @@ function Navbar() {
 
   const links = [
     { href: "/plans", text: "Plans" },
-    { href: "/company", text: "Company" },
+    { href: "/companies", text: "Companies" },
     { href: "/about", text: "About" },
   ];
   return (

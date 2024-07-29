@@ -7,14 +7,12 @@ interface Props {
   image?: string;
 }
 
-const site = Astro.url.toString();
+const site = Astro.url.origin
 const {
   title = "TrustLink Solutions",
   description = "Gateway to quality leads",
-  image = site + "logo.png",
+  image = site + "/logo.png",
 } = Astro.props;
-
-console.log(site)
 ---
 
 <meta charset="UTF-8" />
