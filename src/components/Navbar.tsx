@@ -67,7 +67,7 @@ function Navbar() {
         {/* Desktop */}
         <div className="max-md:hidden flex gap-3 lg:gap-5 font-bold">
           {links.map((l) => (
-            <a href={l.href}>{l.text}</a>
+            <a href={l.href} key={l.href}>{l.text}</a>
           ))}
         </div>
         <div className="max-md:hidden">
