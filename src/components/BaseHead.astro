@@ -7,7 +7,7 @@ interface Props {
   image?: string;
 }
 
-const site = Astro.url.origin
+const site = Astro.site?.toString() ?? "";
 const {
   title = "TrustLink Solutions",
   description = "Gateway to quality leads",
