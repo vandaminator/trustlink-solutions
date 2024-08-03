@@ -1,34 +1,89 @@
 ---
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import Layout from "@/layouts/Layout.astro";
+import { cn } from "@/lib/utils";
 import { Image } from "astro:assets";
-import heroImage from "public/hero.png"
+import heroImage from "public/hero.png";
 
-export const prerender = true
+export const prerender = true;
 ---
 
 <Layout>
   <!-- Hero -->
-  <section class="w-full bg-red-600 text-white px-3 py-16 md:py-10 md:flex md:justify-evenly md:items-center">
+  <section
+    class="w-full bg-red-600 text-white px-3 py-16 md:py-10 md:flex md:justify-evenly md:items-center"
+  >
     <div class="md:w-2/5">
-      <h1 class="mx-auto text-4xl text-center font-bold md:text-left md:text-5xl">
+      <h1
+        class="mx-auto text-4xl text-center font-bold md:text-left md:text-5xl text-fade-up"
+      >
         Reach the right decision makers
       </h1>
-      <p class="mx-auto text-center font-semibold text-lg my-4 md:text-left md:text-xl">
+      <p
+        class="mx-auto text-center font-semibold text-lg my-4 md:text-left md:text-xl text-fade-up"
+      >
         Sell more and close more with the most accurate B2B company and contact
         data.
       </p>
       <div class="my-6">
-        <Button className="w-full bg-black mb-3" client:load>
-          <a href="/plans" class="font-semibold text-lg">View plans</a>
-        </Button>
-        <Button className="w-full" variant={"secondary"} client:load>
-          <a href="/companies" class="font-semibold text-lg">View Companies</a>
-        </Button>
+        <a
+          href="/plans"
+          class={cn(
+            buttonVariants({ variant: "default" }),
+            "font-semibold text-lg w-full my-1 bg-black blur-in"
+          )}>View plans</a
+        >
+        <!-- <a
+          href="/companies"
+          class={cn(
+            buttonVariants({ variant: "secondary" }),
+            "font-semibold text-lg w-full my-1"
+          )}>View Companies</a
+        > -->
       </div>
     </div>
-    <Image class={"max-md:hidden w-[500px]"} src="/hero.png" alt={"dcd"} id="heroimage" width={heroImage.width} height={heroImage.height} loading={"eager"}/>
+    <Image
+      class={"max-md:hidden w-[500px]"}
+      src="/hero.png"
+      alt={"dcd"}
+      id="heroimage"
+      width={heroImage.width}
+      height={heroImage.height}
+      loading={"eager"}
+    />
   </section>
 
   <!-- Logos -->
 </Layout>
+
+<style>
+  @keyframes fadeIn {
+    0% {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes blurIn {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .text-fade-up {
+    animation: fadeIn 1s ease 0s 1;
+  }
+
+  .blur-in {
+    animation: blurIn 1.5s ease-in 0s 1;
+  }
+</style>

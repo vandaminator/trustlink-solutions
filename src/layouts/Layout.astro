@@ -17,8 +17,8 @@ interface Props {
     <BaseHead {...Astro.props} />
   </head>
   <body>
-    <Navbar client:load />
-    <main class="min-h-[calc(100vh-90px)] lg:min-h-[calc(100vh-130px)]" transition:animate="fade">
+    <Navbar client:load transition:persist/>
+    <main transition:animate="fade" class="min-h-[calc(100vh-90px)] lg:min-h-[calc(100vh-130px)]">
       <slot />
     </main>
     <Footer />
